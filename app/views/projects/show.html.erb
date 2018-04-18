@@ -1,0 +1,31 @@
+Project Name <%= @project.name%>| client Name: <%=@project.client.name%><p>
+
+Project Cost: $ <%=@project.amount%> | Amount Paid: $ <%= @project.amount_paid%>
+</p>
+
+<hr>
+
+
+<div class="float-left"id='tasks'>
+
+<h3>Tasks</h3>
+  <% @project.tasks.each do |task|%>
+    <p>
+      <%= task.name%>
+    </p>
+
+
+  <%end%>
+
+  <%= form_with(model: [ @project, @project.tasks.build ],local: true) do |form| %>
+    <%= form.text_field :name %> <%= form.submit %>
+   <%end%>
+</div>
+
+<div class="float-right">
+
+hello
+</div>
+<div class="">
+  some text
+</div>
