@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-
+   @total_expenses = @project.expenses.map(&:cost).sum
   end
 
   private
