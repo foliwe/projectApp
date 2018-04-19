@@ -5,27 +5,54 @@ Project Cost: $ <%=@project.amount%> | Amount Paid: $ <%= @project.amount_paid%>
 
 <hr>
 
+<div class="grid-container">
+  <div class="grid-item">
 
-<div class="float-left"id='tasks'>
+    <h3>Tasks</h3>
 
-<h3>Tasks</h3>
-  <% @project.tasks.each do |task|%>
-    <p>
-      <%= task.name%>
-    </p>
+    <table style="width:100%">
+      <tr>
+        <th>Task</th>
+        <th>Action</th>
+      </tr>
+
+      <%= render @project.tasks %>
+
+    </table>
 
 
-  <%end%>
 
-  <%= form_with(model: [ @project, @project.tasks.build ],local: true) do |form| %>
+
+
+    <%= form_with(model: [ @project, @project.tasks.build ],local: true) do |form| %>
     <%= form.text_field :name %> <%= form.submit %>
-   <%end%>
-</div>
+    <%end%>
+  </div>
+  <div class="grid-item">
 
-<div class="float-right">
+    <h3>Expenses</h3>
+    <table style="width:100%">
+      <tr>
+        <th>Item Name</th>
+        <th>Cost</th>
+        <th>Action</th>
+      </tr>
+      <%= render @project.expenses %>
+    </table>
 
-hello
-</div>
-<div class="">
-  some text
+
+
+
+
+
+    <%= form_with(model: [@project, @project.expenses.build],local: true)do |form| %>
+    <%= form.text_field :item_name %>
+    <%= form.number_field :cost, value: number_to_currency(form.object.cost.to_f, delimiter: '', unit: ''), step: 'any'%>
+     <%= form.submit %>
+    <%end%>
+  </div>
+  <div class="grid-item">
+
+    hello
+  </div>
 </div>
