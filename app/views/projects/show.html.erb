@@ -1,24 +1,42 @@
 Project Name <%= @project.name%>| client Name: <%=@project.client.name%><p>
 
 Project Cost: $ <%=@project.amount%> | Amount Paid: $ <%= @project.amount_paid%>
-</p>
+</p> <br>
+Date to deliver: <%=@project.end_date.strftime('%d-%B-%Y') %>  <br>
+
+Due Date: <%=Integer( @project.end_date- @now)%> <br>
+
+<%= dueDate(@now ,@project.end_date) unless false%>
 
 <hr>
 
 <div class="grid-container">
   <div class="grid-item">
-
-    <h3>Tasks</h3>
+    <h3>Tasks DoTo</h3>
 
     <table style="width:100%">
       <tr>
         <th>Task</th>
         <th>Action</th>
       </tr>
+      <%#= render 'tasks', tasks: @tasks %>
+      <%= render @project.tasks.incomplete%>
 
-      <%= render @project.tasks %>
 
     </table>
+
+    <h3>Tasks Completed</h3>
+    <table style="width:100%">
+      <tr>
+        <th>Task</th>
+        <th>Action</th>
+      </tr>
+      <%#= render 'tasks', tasks: @tasks %>
+      <%= render @project.tasks.complete%>
+
+
+    </table>
+
 
 
 

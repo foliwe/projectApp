@@ -6,7 +6,12 @@ class ProjectsController < ApplicationController
 
   def show
    @total_expenses = @project.expenses.map(&:cost).sum
+   @now = Time.now.to_date
+
+
   end
+
+
 
   private
   def find_project
