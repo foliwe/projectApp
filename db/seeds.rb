@@ -40,8 +40,8 @@ Project.destroy_all
 # Contact.create!(contacts)
 #  p "#{number_of_contacts} contacts created"
 
- client_1 = Client.create!(name: "foliwe",email:"foliwe@example.com",phone: "+441234567")
- client_2 = Client.create!(name: "fossung",email:"fossung@example.com",phone: "+23743647576")
+ client_1 = Client.create!(name: "foliwe",email:"foliwe@example.com",phone: "+441234567",address:"68 barclay street")
+ client_2 = Client.create!(name: "fossung",email:"fossung@example.com",phone: "+23743647576",address:"89 Millwood street")
 
 #projects
 # t.string "name"
@@ -52,7 +52,7 @@ Project.destroy_all
 # t.text "description"
 # t.float "amount_paid", default: 0.0
 # t.index ["client_id"], name: "index_projects_on_client_i
-  project_1 = Project.create!(name:"www.example.com",amount:542,client_id:client_1.id,description:"wordpress website")
-  project_2 = Project.create!(name:"Tac Branding project",amount:2500,client_id:client_2.id,description:"Branding for tac")
+  project_1 = Project.create!(name:"www.example.com",amount:542,client_id:client_1.id,description:"wordpress website",end_date: Date.new(2018,4,20))
+  project_2 = Project.create!(name:"Tac Branding project",amount:2500,client_id:client_2.id,description:"Branding for tac",end_date: Date.new(2018,4,24))
   # task1 = Task.create!(name: "Add login ",project_id:project_1.id)
   # task2 = Task.create!(name: "add email function ",project_id:project_1.id)

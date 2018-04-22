@@ -78,7 +78,12 @@ Due Date: <%=Integer( @project.end_date- @now)%> <br>
   </div>
   <div class="grid-item">
 
-    hello
+    <p>Client Email: <%= @project.client.email %></p>
+    <p>Client Phone: <%= @project.client.phone %></p>
+    <p>Client's Address: <%= @project.client.address %></p>
+     <hr>
+     <input type="submit" value="Send Email to client"> | <input type="submit" value="Generate Invoice">
+
   </div>
 
   <p> <%= link_to 'back',projects_path %></p>
