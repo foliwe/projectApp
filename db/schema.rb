@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180419214540) do
+ActiveRecord::Schema.define(version: 20180502144315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,43 @@ ActiveRecord::Schema.define(version: 20180419214540) do
     t.index ["project_id"], name: "index_expenses_on_project_id"
   end
 
+  create_table "invoice_items", force: :cascade do |t|
+    t.text "name"
+    t.integer "quantity"
+    t.float "rate"
+    t.float "amount"
+    t.bigint "invoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_invoice_items_on_invoice_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.text "logo"
+    t.text "name"
+    t.text "invoice_id"
+    t.text "from"
+    t.text "to_heading"
+    t.text "to_description"
+    t.date "date"
+    t.text "payment_terms"
+    t.date "due_date"
+    t.float "balance_due"
+    t.float "subtotal"
+    t.float "discount"
+    t.float "tax"
+    t.float "total"
+    t.float "amount_paid"
+    t.text "notes_heading"
+    t.text "notes_text"
+    t.text "terms_text"
+    t.text "terms_heading"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_invoices_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -45,7 +82,6 @@ ActiveRecord::Schema.define(version: 20180419214540) do
     t.float "amount_paid", default: 0.0
     t.string "type_of_service"
     t.date "start_date"
-    t.date "end_date"
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
@@ -60,6 +96,8 @@ ActiveRecord::Schema.define(version: 20180419214540) do
 
   add_foreign_key "clients", "projects"
   add_foreign_key "expenses", "projects"
+  add_foreign_key "invoice_items", "invoices"
+  add_foreign_key "invoices", "projects"
   add_foreign_key "projects", "clients"
   add_foreign_key "tasks", "projects"
 end
