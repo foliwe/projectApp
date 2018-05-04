@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery
+//= require jquery-ui
+//= require jquery_ujs
+//= require jquery.nested-fields
