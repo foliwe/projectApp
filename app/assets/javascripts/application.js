@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+<<<<<<< HEAD
 //= require jquery3
 //= require popper
 //= require bootstrap
@@ -22,4 +23,9 @@
 //= require jquery.vmap.min
 //= require jquery.mCustomScrollbar.concat.min
 //= require scripts
+=======
+//= require jquery
+//= require jquery-ui
+//= require jquery_ujs
+>>>>>>> 2ccbb8628ee8fbf8966c0af8515bdc9f52cc3d46
 //= require jquery.nested-fields

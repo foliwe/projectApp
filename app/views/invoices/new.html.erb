@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <main class="main-content p-2" role="main">
 <div class="container  border bg-white mt-5">
 	<%= render partial: "layouts/flash_message" %>
@@ -156,6 +157,119 @@
 		</div>
 	</div>
 </div>
+=======
+<%= render partial: "layouts/flash_message" %>
+
+<%= form_for @invoice, html: { multipart: true } do |form| %>
+	<form class="container">
+		<div class="form-group col-sm-10">
+	    <label>Image</label>
+	    <%= form.file_field :image %>
+	   </div>
+	   <img src="123.jpg" id="img_prev" style="width:20%;height: 20%;" >
+    <div class="form-group col-sm-10">
+    	<label>Name</label>
+      <%= form.text_field :name ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Invoice Id</label>
+      <%= form.text_field :invoice_id ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>From</label>
+      <%= form.text_field :from ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>To</label>
+      <%= form.text_field :to_heading ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>To Description</label>
+      <%= form.text_field :to_description ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Date</label>
+      <%= form.text_field :date ,class: "form-control datepicker" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Payment Terms</label>
+      <%= form.text_field :payment_terms ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Due Date</label>
+      <%= form.text_field :due_date ,class: "form-control datepicker" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Balance Due</label>
+      <%= form.number_field :balance_due ,class: "form-control" %>
+    </div>
+
+    <div class="items">
+      <%= form.nested_fields_for :invoice_items do |f| %>
+        <fieldset class="item">
+          <%= f.text_field :name %>
+          <%= f.number_field :quantity %>
+          <%= f.number_field :rate %>
+          <%= f.number_field :amount %>
+          <a href="#" class="remove">remove</a>
+
+          <%= f.hidden_field :id %>
+          <%= f.hidden_field :_destroy %>
+        </fieldset>
+      <% end %>
+    </div>
+    <a href="#" class="add">Add More</a>
+
+    <div class="form-group col-sm-10">
+    	<label>Sub Total</label>
+      <%= form.number_field :subtotal ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Discount</label>
+      <%= form.number_field :discount ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Tax</label>
+      <%= form.number_field :tax ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Total</label>
+      <%= form.number_field :total ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Amount Paid</label>
+      <%= form.number_field :amount_paid ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Notes Heading</label>
+      <%= form.text_field :notes_heading ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Notes Text</label>
+      <%= form.text_field :notes_text ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Terms Heading</label>
+      <%= form.text_field :terms_heading ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+    	<label>Terms Text</label>
+      <%= form.text_field :terms_text ,class: "form-control" %>
+    </div>
+    <div class="form-group col-sm-10">
+      <label>Select Project</label>
+      <%= form.select :project_id, Project.all.map{|u| [u.name, u.id]}, {}, class: "form-control" %>
+    </div>
+
+    
+    
+  	<table class="table">
+  		<tr>
+  			<td style="border-top:none;" class="" align="center"><%= form.submit "ADD", class: "btn btn-default btn-custom" %></td>
+  </form>
+<% end %>
+
+>>>>>>> 2ccbb8628ee8fbf8966c0af8515bdc9f52cc3d46
 
 <script>
 	$(document).ready(function(e) {
@@ -190,4 +304,8 @@
     }
   }
 
+<<<<<<< HEAD
 </script>
+=======
+</script>
+>>>>>>> 2ccbb8628ee8fbf8966c0af8515bdc9f52cc3d46
