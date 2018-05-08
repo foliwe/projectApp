@@ -189,10 +189,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_nested_fields
-<<<<<<< HEAD
   bootstrap (~> 4.0)
-=======
->>>>>>> 2ccbb8628ee8fbf8966c0af8515bdc9f52cc3d46
   byebug
   coffee-rails (~> 4.2)
   faker (~> 1.8, >= 1.8.7)
