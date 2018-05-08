@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.6'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.0"
 gem "mini_magick"
 gem 'jquery-rails'
 gem 'awesome_nested_fields'
