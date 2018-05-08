@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
 
     @project = Project.find(params[:project_id])
     @expense = @project.expenses.create(expense_params)
-  
+
 
     redirect_to project_path(@project)
   end

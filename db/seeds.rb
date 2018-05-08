@@ -15,6 +15,7 @@
 Task.destroy_all
 Client.destroy_all
 Project.destroy_all
+Employee.destroy_all
 # Group.destroy_all
 #
 # group_ids = []
@@ -56,3 +57,4 @@ Project.destroy_all
   project_2 = Project.create!(name:"Tac Branding project",amount:2500,client_id:client_2.id,description:"Branding for tac",end_date: Date.new(2018,4,24))
   # task1 = Task.create!(name: "Add login ",project_id:project_1.id)
   # task2 = Task.create!(name: "add email function ",project_id:project_1.id)
+  e1= Employee.create!(name:"Utaka Henry",phone: "1234456",email:"utaka@yahoo.com",project_id:project_1.id)
