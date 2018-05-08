@@ -14,6 +14,7 @@ gem "paperclip", "~> 5.0.0"
 gem "mini_magick"
 gem 'jquery-rails'
 gem 'awesome_nested_fields'
+gem 'bootstrap', '~> 4.0'
 gem 'jquery-ui-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

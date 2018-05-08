@@ -1,7 +1,7 @@
 <%= render partial: "layouts/flash_message" %>
 
 <%= form_for @invoice, html: { multipart: true } do |form| %>
-	<form class="container">
+
 		<div class="form-group col-sm-10">
 	    <label>Image</label>
 	    <%= form.file_field :image %>
@@ -44,21 +44,25 @@
       <%= form.number_field :balance_due ,class: "form-control" %>
     </div>
 
-    <div class="items">
-      <%= form.nested_fields_for :invoice_items do |f| %>
-        <fieldset class="item">
-          <%= f.text_field :name %>
-          <%= f.number_field :quantity %>
-          <%= f.number_field :rate %>
-          <%= f.number_field :amount %>
-          <a href="#" class="remove">remove</a>
+	<div class="items">
+		<%= form.nested_fields_for :invoice_items do |f| %>
+		<fieldset class="item">
+			<div class="row pb-2">
 
-          <%= f.hidden_field :id %>
-          <%= f.hidden_field :_destroy %>
-        </fieldset>
-      <% end %>
-    </div>
-    <a href="#" class="add">Add More</a>
+		<div class="col"><%= f.text_field :name ,class:"form-control",placeholder:"item name"%></div>
+		<div class="col"><%= f.number_field :quantity ,class:"form-control",placeholder:"quantity" %></div>
+		<div class="col"><%= f.number_field :rate ,class:"form-control",placeholder:"rate" %></div>
+		<div class="col"><%= f.number_field :amount ,class:"form-control",placeholder:"amount" %></div>
+		<div class="col"><%= link_to 'Remove','#',class:"remove btn btn-warning btn-sm"%></div>
+     <%= f.hidden_field :id %>
+			<%= f.hidden_field :_destroy %>
+		</div>
+		</fieldset>
+		<% end %>
+
+</div>
+<%= link_to 'Add Item','#',class:"add btn btn-primary btn-sm"%>
+    <!-- <a href="#" class="add btn btn-primary btn-sm">Add More</a> -->
 
     <div class="form-group col-sm-10">
     	<label>Sub Total</label>
@@ -101,12 +105,12 @@
       <%= form.select :project_id, Project.all.map{|u| [u.name, u.id]}, {}, class: "form-control" %>
     </div>
 
-    
-    
+
+
   	<table class="table">
   		<tr>
   			<td style="border-top:none;" class="" align="center"><%= form.submit "ADD", class: "btn btn-default btn-custom" %></td>
-  </form>
+
 <% end %>
 
 

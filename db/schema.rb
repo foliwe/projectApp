@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180503103848) do
     t.float "amount_paid", default: 0.0
     t.string "type_of_service"
     t.date "start_date"
+    t.date "end_date"
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 
