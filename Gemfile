@@ -20,7 +20,7 @@ gem 'jquery-ui-rails'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.0"
 
 gem "mini_magick"
 gem 'jquery-ui-rails'
