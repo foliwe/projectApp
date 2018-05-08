@@ -1,3 +1,7 @@
+
+<main class="main-content p-5" role="main">
+
+
 Project Name <%= @project.name%>| client Name: <%=@project.client.name%><p>
 
 Project Cost: $ <%=@project.amount%> | Amount Paid: $ <%= @project.amount_paid%>
@@ -82,11 +86,18 @@ Due Date: <%=Integer( @project.end_date- @now)%> <br>
     <p>Client Phone: <%= @project.client.phone %></p>
     <p>Client's Address: <%= @project.client.address %></p>
      <hr>
-     <input type="submit" value="Send Email to client"> | <input type="submit" value="Generate Invoice">
+     <input type="submit" class="btn btn-primary" value="Send Email to client"> | <input type="submit" value="Generate Invoice">
 
+  </div>
+
+
+  <div class="grid-item">
+    <h3>Employees</h3>
   </div>
 
   <p> <%= link_to 'back',projects_path %></p>
 
 
 </div>
+
+</main>

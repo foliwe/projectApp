@@ -1,3 +1,163 @@
+
+<main class="main-content p-2" role="main">
+<div class="container  border bg-white mt-5">
+	<%= render partial: "layouts/flash_message" %>
+	<span class="text-center"><h1 class="display-5">New Invoice</h1></span>
+<%= form_for @invoice, html: { multipart: true } do |form| %>
+
+
+
+	<div class="col-4 form-group">
+		<div class="addfile bg-primary ">
+			Add file
+			<%= form.file_field :image %>
+		</div>
+		<img src="123.jpg" id="img_prev" style="width:30%;height: 30%;" >
+	</div>
+
+  <div class="clearfix">
+  	<div class="float-left">
+       <div class="form-group col">
+				 <label>Select Project</label>
+				 <%= form.select :project_id, Project.all.map{|u| [u.name, u.id]}, {}, class: "form-control" %>
+			 </div>
+			 <div class="form-group col">
+				 <label>From</label>
+				 <%= form.text_field :from ,class: "form-control" %>
+			 </div>
+			 <div class="form-group col">
+				 <label>To</label>
+				 <%= form.text_field :to_heading ,class: "form-control" %>
+			 </div>
+			 <div class="form-group col">
+				 <label>To Description</label>
+				 <%= form.text_area :to_description ,class: "form-control" %>
+			 </div>
+
+  	</div>
+
+
+
+
+  	<div class="float-right">
+				<h3 class="display-5">INVOICE</h3>
+			<div class="input-group col">
+					<div class="input-group-prepend">
+						<span class="input-group-text">#</span>
+					</div>
+				<%= form.text_field :invoice_id ,class: "form-control" %>
+			</div>
+			<div class="form-group col">
+				<label>Date</label>
+				<%= form.text_field :date ,class: "form-control datepicker" %>
+			</div>
+			<div class="form-group col">
+				<label>Payment Terms</label>
+				<%= form.text_field :payment_terms ,class: "form-control" %>
+			</div>
+			<div class="form-group col">
+				<label>Due Date</label>
+				<%= form.text_field :due_date ,class: "form-control datepicker" %>
+			</div>
+			<div class="form-group col">
+				<label>Balance Due</label>
+				<%= form.number_field :balance_due ,class: "form-control" %>
+			</div>
+  	</div>
+  </div>
+
+
+
+
+	 <div class="items">
+		<%= form.nested_fields_for :invoice_items do |f| %>
+			<fieldset class="item">
+				<table class="table ">
+					<thead class="thead-dark">
+						<tr>
+							<th>Item</th>
+							<th>Quantity</th>
+							<th>Rate</th>
+							<th>Amount<th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= f.text_field :name ,class:"form-control",placeholder:"item name"%></td>
+								<td><%= f.number_field :quantity ,class:"form-control",placeholder:"quantity" %></td>
+								<td><%= f.number_field :rate ,class:"form-control",placeholder:"rate" %></td>
+								<td><%= f.number_field :amount ,class:"form-control",placeholder:"amount" %></td>
+								<td><%= link_to 'Remove','#',class:"remove btn btn-warning btn-sm"%></td>
+							</tr>
+							<%= f.hidden_field :id %>
+							<%= f.hidden_field :_destroy %>
+
+						</tbody>
+				</table>
+	   	</div>
+			</fieldset>
+		<% end %>
+
+
+
+
+
+ </div> <!-- container -->
+ <%= link_to 'Add Item','#',class:"add btn btn-primary btn-sm"%>
+    <!-- <a href="#" class="add btn btn-primary btn-sm">Add More</a> -->
+<div class="row d-flex flex-column ">
+
+	<div class=" row d-flex justify-content-between ml-auto">
+		<div class="col-sm-4">Sub Total</div>
+
+		<div class="col-sm-6">
+
+			<%= form.number_field :subtotal ,class: "form-control" %>
+		</div>
+	</div>
+	<div class="row d-flex  justify-content-between ml-auto">
+	<div class="col-sm-4 ">Discount</div>
+	<div class="col-sm-6"><%= form.number_field :discount ,class: "form-control" %></div>
+	</div>
+	<div class="row d-flex justify-content-between ml-auto">
+	<div class="col-sm-4 "> Tax &nbsp &nbsp &nbsp &nbsp &nbsp </div>
+	<div class="col-sm-6"><%= form.number_field :tax ,class: "form-control" %></div>
+	</div>
+	<div class="row d-flex justify-content-between ml-auto">
+	<div class="col-sm-4 "> Total &nbsp &nbsp &nbsp</div>
+	<div class="col-sm-6"><%= form.number_field :total ,class: "form-control" %></div>
+	</div>
+	<div class="row d-flex justify-content-between ml-auto">
+	<div class="col-sm-4 "> Amount P</div>
+	<div class="col-sm-6 "><%= form.number_field :amount_paid ,class: "form-control" %></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+
+		<div class="form-group ">
+			<label>Notes Heading</label>
+			<%= form.text_area :notes_heading ,class: "form-control" %>
+		</div>
+	</div>
+</div>
+
+
+
+  	<table class="table">
+  		<tr>
+  			<td style="border-top:none;" class="" align="center"><%= form.submit "ADD", class: "btn btn-default btn-custom" %></td>
+
+<% end %>
+</div>
+
+</main>
+
+		</div>
+	</div>
+</div>
+
 <%= render partial: "layouts/flash_message" %>
 
 <%= form_for @invoice, html: { multipart: true } do |form| %>
@@ -114,6 +274,7 @@
 <% end %>
 
 
+
 <script>
 	$(document).ready(function(e) {
     $('.datepicker').datepicker();
@@ -147,4 +308,12 @@
     }
   }
 
+<<<<<<< HEAD
 </script>
+=======
+<<<<<<< HEAD
+</script>
+=======
+</script>
+>>>>>>> 2ccbb8628ee8fbf8966c0af8515bdc9f52cc3d46
+>>>>>>> 214e9e22aa0656cb911a199cdefdfec216a33ab3
